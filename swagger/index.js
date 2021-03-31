@@ -3,6 +3,7 @@ const swaggerJsDoc = require("swagger-jsdoc");
 
 const swaggerOptions = {
     swaggerDefinition: {
+        openapi: "3.0.0",
         info: {
             title: 'Customer Api',
             description: 'Customer Api Info',

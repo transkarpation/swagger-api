@@ -13,7 +13,7 @@ const swaggerOptions = {
         }
     },
     // ['.routes/*.js']
-    apis: ["server.js"]
+    apis: ["./routes/**/*.js"]
 }
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 

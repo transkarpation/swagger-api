@@ -2,28 +2,10 @@ const {Router} = require('express')
 
 const r = Router()
 
-/**
- * @swagger
- * /customers:
- *  get:
- *      description: Use to request all customers
- *      responses:
- *          '200':
- *              description: A succesfull response
- */
 r.get('/', (req, res) => {
     res.send('get /customers/')
 })
 
-/**
- * @swagger
- * /customers:
- *  get:
- *      description: Use to request all customers
- *      responses:
- *          '200':
- *              description: A succesfull response
- */
 r.get('/:id', (req, res) => {
     res.send('get /customers/:id')
 })

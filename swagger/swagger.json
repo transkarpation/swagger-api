@@ -1,0 +1,12 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Customer Api",
+    "description": "Customer Api Info",
+    "contact": { "name": "Boris B" },
+    "servers": [ "http://localhost:5000/" ]
+  },
+  "paths": { "/customers": { "get": ["Object"] } },
+  "components": { "schemas": { "Book": ["Object"] } },
+  "tags": []
+}

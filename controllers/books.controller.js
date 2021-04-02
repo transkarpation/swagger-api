@@ -23,7 +23,8 @@ module.exports = {
         
     },
 
-    getId: (req, res) => {
+    getId: async (req, res) => {
+        await knex
         res.send('tasks getId')
     },
 

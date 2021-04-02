@@ -13,8 +13,14 @@ module.exports = {
         res.send(result)
     },
 
-    get: (req, res) => {
-        res.send('tasks get')
+    get: async (req, res) => {
+        try {
+            const result = await knex.select().table('books')
+            return res.send(result)
+        } catch (e) {
+            return res.status(500).end()
+        }
+        
     },
 
     getId: (req, res) => {

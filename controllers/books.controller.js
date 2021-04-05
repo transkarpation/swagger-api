@@ -1,5 +1,4 @@
 const knex = require('../knex')
-const { body, validationResult } = require('express-validator');
 
 module.exports = {
     create: async (req, res) => {

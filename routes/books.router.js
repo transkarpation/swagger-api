@@ -7,6 +7,11 @@ const r = Router();
 /** 
 *@swagger
 *   components:
+*       securitySchemes:
+*           bearerAuth:
+*               type: http
+*               scheme: bearer
+*               bearerFormat: JWT
 *       schemas:
 *           BookRequest:
 *               type: object
@@ -59,6 +64,8 @@ const r = Router();
 *       post:
 *           summary: Create book
 *           tags: [Books]
+*           security:
+*               - bearerAuth: []
 *           requestBody:
 *               required: true
 *               content:
@@ -81,6 +88,8 @@ r.post('/', createBookValidate(), booksController.create)
 *       get:
 *           summary: Returns the list of all books
 *           tags: [Books]
+*           security:
+*               - bearerAuth: []
 *           responses:
 *               200:
 *                   description: The list of the books
@@ -99,6 +108,8 @@ r.get("/", booksController.get);
 *       get:
 *           summary: Get the book by id
 *           tags: [Books]
+*           security:
+*               - bearerAuth: []
 *           parameters:
 *               -   in: path
 *                   name: id 
@@ -128,6 +139,8 @@ r.get("/:id", (req, res) => {
  *      put:
  *          summary: Update the book by the id
  *          tags: [Books]
+ *          security:
+ *              - bearerAuth: []
  *          parameters:
  *              -   in: path
  *                  name: id

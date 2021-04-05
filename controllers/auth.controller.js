@@ -1,11 +1,17 @@
 const knex = require('../knex')
+const jwt = require('jsonwebtoken')
 
 module.exports = {
     signin: async (req, res) => {
-        res.send('signin')
+        const {email, id} = req.user
+        const token = jwt.sign({ id }, 'secret')
+        res.send({email, token})
     },
 
     signup: async (req, res) => {
-        res.send('signup')
+        const {email, id} = req.user;
+        const token = jwt.sign({ id }, 'secret');
+
+        res.send({email, token})
     }
 }

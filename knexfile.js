@@ -16,7 +16,7 @@ module.exports = {
     seeds: {
       directory: resolve('./knex/seeds')
     },
-    debug: true
+    // debug: true
   },
 
   staging: {

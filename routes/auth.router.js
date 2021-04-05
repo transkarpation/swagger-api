@@ -112,6 +112,6 @@ r.post("/signup", passport.authenticate('signup', {session: false}), authControl
  *                           schema:
  *                               $ref: '#/components/schemas/SigninResponse'
  */
-r.post("/signin", authController.signin);
+r.post("/signin", passport.authenticate('login', {session: false}), authController.signin);
 
 module.exports = r;

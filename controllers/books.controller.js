@@ -3,19 +3,32 @@ const knex = require('../knex')
 module.exports = {
     create: async (req, res) => {
         const {title, author} = req.body;
+        const {id} = req.user
         const result = await knex('books')
-            .returning(['id', 'title', 'author', 'created_at', 'updated_at'])
+            .returning(['id', 'title', 'author', 'user_id', 'created_at', 'updated_at'])
             .insert({
                 title,
-                author
+                author,
+                user_id: id
             })
         res.send(result)
     },
 
     get: async (req, res) => {
+        let { startAt, maxResults } = req.query
         try {
-            const result = await knex.select().table('books')
-            return res.send(result)
+            // const results = await knex('books as b')
+            //     .join('users as u', 'u.id', 'b.user_id')
+            //     .select('b.id', 'u.email as creator_email', 'b.title', 'b.author')
+            const response = {
+                startAt: 0,
+                maxResults: 10,
+                isLast: false,
+                total: 200,
+                values: []
+            }
+            // const result = await knex.select().table('books')
+            return res.send(response)
         } catch (e) {
             return res.status(500).end()
         }
@@ -23,8 +36,10 @@ module.exports = {
     },
 
     getId: async (req, res) => {
-        await knex
-        res.send('tasks getId')
+        const {id} = req.params;
+        const results = await knex.where({ id })
+        const book = results[0]
+        res.send(book)
     },
 
     update: (req, res) => {

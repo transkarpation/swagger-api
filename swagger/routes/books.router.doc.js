@@ -83,6 +83,15 @@
 *           tags: [Books]
 *           security:
 *               - bearerAuth: []
+*           parameters:
+*               -   in: query
+*                   name: startAt
+*                   schema:
+*                       type: integer
+*               -   in: query
+*                   name: maxResults
+*                   schema:
+*                       type: integer
 *           responses:
 *               200:
 *                   description: The list of the books

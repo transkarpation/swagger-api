@@ -4,6 +4,7 @@ exports.up = function(knex) {
         table.increments();
         table.string('title').notNullable();
         table.string('author').notNullable();
+        table.integer('user_id').references('id').inTable('users');
         table.timestamp('created_at').defaultTo(knex.fn.now())
         table.timestamp('updated_at').defaultTo(knex.fn.now())
     })

@@ -15,7 +15,7 @@ const options = {
         servers: [{url: "http://localhost:5000/"}],
     },
     // ['.routes/*.js']
-    apis: ["./routes/**/*.js"]   
+    apis: ["./swagger/routes/**/*.js"]   
 }
 const swaggerDocs = swaggerJsDoc(options);
 

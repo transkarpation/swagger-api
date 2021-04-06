@@ -7,7 +7,7 @@ const knex = require('../knex')
 const bcrypt = require('bcrypt')
 
 const options = {
-  jwtFromRequest: ExtractJwt,
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   secretOrKey: secret,
 };
 
@@ -55,3 +55,14 @@ passport.use(
     }
   )
 )
+
+passport.use(new JwtStrategy(options, async ({ id }, done) => {
+  const results = await knex('users').where({ id })
+  const user = results[0]
+
+  if(!user) {
+    return done(null, null)
+  }
+
+  return done(null, user)
+}))

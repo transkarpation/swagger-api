@@ -20,6 +20,7 @@ module.exports = {
             // const results = await knex('books as b')
             //     .join('users as u', 'u.id', 'b.user_id')
             //     .select('b.id', 'u.email as creator_email', 'b.title', 'b.author')
+            // await results
             const response = {
                 startAt: 0,
                 maxResults: 10,

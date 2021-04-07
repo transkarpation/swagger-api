@@ -19,4 +19,5 @@ app.use(errorHandler);
 
 app.listen(5000, () => {
   console.log("listening on 5000");
+  console.log("visit http://localhost:5000/api-docs for Swagger Ui docs")
 });

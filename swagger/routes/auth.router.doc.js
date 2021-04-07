@@ -41,6 +41,9 @@
  *                       type: string
  *                   password:
  *                       type: string
+ *               example:
+ *                   email: u1@i.ua
+ *                   password: 123
  *           SigninResponse:
  *               type: object
  *               properties:

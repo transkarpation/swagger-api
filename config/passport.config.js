@@ -46,7 +46,7 @@ passport.use(
       }
 
       const user = result[0]
-      const isValidPassword = await bcrypt.compare(password, user.password);
+      const isValidPassword = await bcrypt.compare('' + password, user.password);
       if(!isValidPassword) {
         return done(null, null)
       }

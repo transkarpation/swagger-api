@@ -32,21 +32,39 @@ module.exports = {
         }
         // const result = await knex.select().table('books')
         return res.send(response)
-        
     },
 
     getId: async (req, res) => {
         const {id} = req.params;
-        const results = await knex.where({ id })
+        const results = await knex('books').where({ id })
         const book = results[0]
-        res.send(book)
+        if (book) {
+            return res.send(book)
+        }
+
+        return res.status(404).end()
     },
 
-    update: (req, res) => {
-        res.send('tasks update')
-    },
+    update: async (req, res) => {
+        const {id} = req.params
+        const {title, author} = req.body
+        let author2;
 
-    delete: (req, res) => {
-        res.send('tasks delete')
+        const results = await knex('books').where({ id }).update({
+            title,
+            author,
+            updated_at: new Date()
+        }, ['id', 'author', 'title', 'created_at', 'updated_at', 'user_id'])
+
+        res.send(results[0])
+    }, 
+
+    delete: async (req, res) => {
+        const {id} = req.params;
+        const results = await knex('books').where('id', id).delete(['id'])
+        if (results.length) {
+            return res.send(results[0])
+        }
+        return res.status(404).end()
     }
 }

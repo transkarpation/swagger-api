@@ -1,5 +1,5 @@
 const validate = require('./validate')
-const { body } = require('express-validator');
+const { body, param } = require('express-validator');
 
 module.exports = {
     createBookValidate: () => validate(
@@ -10,6 +10,13 @@ module.exports = {
             body('author')
                 .isLength({min: 4})
                 .withMessage('"author" must be at least 4 chars lenght')
+        ]
+    ),
+    getBookById: () => validate(
+        [
+            param('id', 'invalid id param')
+                .isInt()
+                .custom(val => val > 0)
         ]
     )
 }

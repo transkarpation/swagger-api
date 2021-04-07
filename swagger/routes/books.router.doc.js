@@ -160,3 +160,24 @@
  *              404:
  *                  description: Not found
  */
+
+/**
+*@swagger
+*   /books/{id}:
+*       delete:
+*           summary: Delete the book by id
+*           tags: [Books]
+*           security:
+*               - bearerAuth: []
+*           parameters:
+*               -   in: path
+*                   name: id
+*                   schema:
+*                       type: number
+*                   required: true 
+*           responses:
+*               200:  
+*                   description: Success
+*               404:
+*                   description: Not found     
+*/

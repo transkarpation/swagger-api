@@ -1,13 +1,15 @@
 const express = require("express");
-const app = express();
-const routes = require("./routes");
-const errorHandler = require("./errorHandler");
 const morgan = require("morgan");
 const cors = require("cors");
 const passport = require("passport");
+
+const app = express();
 require('./config/passport.config');
+const routes = require("./routes");
 const auth = require('./middlewares/auth.middleware')
 const whiteList = require('./config/routes-white-list')
+const errorHandler = require("./errorHandler");
+
 
 app.use(cors());
 app.use(morgan("tiny"));

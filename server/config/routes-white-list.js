@@ -1,5 +1,6 @@
 module.exports = [
     '/auth/signin',
     '/auth/signup',
-    '/files'
+    '/files',
+    '/books'
 ]

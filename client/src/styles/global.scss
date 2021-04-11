@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100vh;
+    padding: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+}
+
+input:focus {
+    outline: none;
+}
+
